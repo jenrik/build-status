@@ -1,0 +1,15 @@
+{
+	"database": {
+		"driver": "sqlite3",
+		"database": "database.db"
+	},
+	"servers": [
+		{
+			"driver": "jenkins",
+			"url": "https://builds.apache.org/api/json",
+			"storage": "remote"
+		}
+	],
+	"updateFreq": 0,
+	"manualReload": true
+}

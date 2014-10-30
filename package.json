@@ -1,0 +1,27 @@
+{
+  "name": "build-status",
+  "version": "0.0.0",
+  "description": "A system designed to be a central place to monitor build status and view statistics from multiple build servers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jenrik/build-status"
+  },
+  "keywords": [
+    "build-server"
+  ],
+  "author": "Jacob <jacob@jener.dk> (http://jener.dk/)",
+  "license": "GPL V3",
+  "bugs": {
+    "url": "https://github.com/jenrik/build-status/issues"
+  },
+  "dependencies": {
+    "caminte": "0.0.22",
+    "handlebars": "~2.0.0",
+    "express": "~4.10.1",
+    "sqlite3": "~3.0.2"
+  }
+}
