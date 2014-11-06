@@ -6,12 +6,3 @@ To run Build status you will need to be able to host a Node.js instance
 
 ## Running
 node server.js
-
-## Configuration
-- **database** is the database to use for storage. For format refer to [Caminte.js](https://github.com/biggora/caminte#connecting)
-- **server** is a array containing objects represinting build server following of the following format:
-  - **driver** The builds server driver to use. Available drivers can be found in the drivers directorie.
-  - **url** The url to retrieve data from
-  - **storage** "remote" if the only the builds available on the buildserver should be used, and local if the build server only stores a limited about of builds.
-- **updateFreq** The frequence in minutes to pool the buildserver for information. If 0 Build status will not retrieve information from the build servers automaticly
-- **manualReload** Whether or not a manual information retrieval can be executed by going to /reload

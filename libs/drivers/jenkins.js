@@ -10,10 +10,10 @@ var lookup = {
 	"grey-anime": "disabled",
 	"disabled": "disabled",
 	"disabled-anime": "disabled",
-	"aborted": "disabled",
-	"aborted-anime": "disabled",
-	"nobuilt": "disabled",
-	"nobuilt-anime": "disabled",
+	"aborted": "aborted",
+	"aborted-anime": "aborted",
+	"nobuilt": "ignore",
+	"nobuilt-anime": "ignore"
 };
 
 module.exports = function(url, callback) {
@@ -24,14 +24,15 @@ module.exports = function(url, callback) {
 			var status = [];
 
 			for (var i = jenkins.length - 1; i >= 0; i--) {
+				//ToDo: Handle ingore
 				status.push({
 					"name": jenkins[i].name,
 					"url": jenkins[i].url,
 					"status": lookup[jenkins[i].color]
 				});
-			};
+			}
 
 			callback(undefined, status);
-		};
+		}
 	});
 };

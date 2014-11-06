@@ -19,9 +19,9 @@
     "url": "https://github.com/jenrik/build-status/issues"
   },
   "dependencies": {
-    "caminte": "0.0.22",
     "handlebars": "~2.0.0",
     "express": "~4.10.1",
-    "sqlite3": "~3.0.2"
+    "sqlite3": "~3.0.2",
+    "sequelize": "~2.0.0-rc2"
   }
 }

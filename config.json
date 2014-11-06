@@ -1,15 +1,12 @@
 {
+	"!!README!!": "This is a auto generated file you should not change it! Instead use the settings panel",
 	"database": {
-		"driver": "sqlite3",
-		"database": "database.db"
-	},
-	"servers": [
-		{
-			"driver": "jenkins",
-			"url": "https://builds.apache.org/api/json",
-			"storage": "remote"
+		"url": "",
+		"username": "",
+		"password": "",
+		"options": {
+			"dialect": "sqlite",
+			"storage": "database.db"
 		}
-	],
-	"updateFreq": 0,
-	"manualReload": true
+	}
 }
