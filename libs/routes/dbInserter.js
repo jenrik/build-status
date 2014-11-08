@@ -1,6 +1,6 @@
-var database = require(__dirname + "/../database.js");
-
-module.exports = function(req, resp, next) {
-	req.database = database;
-	next();
+module.exports = function(database) {
+	return function(req, resp, next) {
+		req.database = database;
+		next();
+	};
 };

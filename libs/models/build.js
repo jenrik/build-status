@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		"status":	{ 
 			"type": DataTypes.ENUM,
-			"values": ["success", "failure", "aborted", "warning"]
+			"values": ["success", "failed", "aborted", "warning"]
 		}
 	});
 };

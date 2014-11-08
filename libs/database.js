@@ -1,16 +1,35 @@
 var config = require(__dirname + "/../config.json");
 var Sequelize = require("sequelize");
-var sequelize = new Sequelize(
-	config.database.url,
-	config.database.username,
-	config.database.password,
-	config.database.options);
 
-var Server = sequelize.import(__dirname + "/models/server");
-var Build = sequelize.import(__dirname + "/models/build");
+module.exports = function(bs) {
+	var sequelize = new Sequelize(
+		bs.config.database.uri,
+		bs.config.database.options);
 
-Server.hasMany(Build, { as: "builds" });
-Server.sync();
-Build.sync();
+	var Server = sequelize.import(__dirname + "/models/server");
+	var Build = sequelize.import(__dirname + "/models/build");
+	var Config = sequelize.import(__dirname + "/models/config");
 
-module.exports = sequelize;
+	Server.hasMany(Build, { as: "builds" });
+	Server.sync()
+		.succes(function() {
+			bs.logger.info("Succes fully synced the Server table");
+		})
+		.error(function(error) {
+			bs.logger.error("Failed to sync the Server table", error);
+		});
+	Build.sync()
+		.succes(function() {
+			bs.logger.info("Succes fully synced the Build table");
+		})
+		.error(function(error) {
+			bs.logger.error("Failed to sync the Build table", error);
+		});
+	Config.sync()
+		.succes(function() {
+			bs.logger.info("Succes fully synced the Config table");
+		})
+		.error(function(error) {
+			bs.logger.error("Failed to sync the Config table", error);
+		});
+};

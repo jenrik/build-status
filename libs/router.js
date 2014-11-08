@@ -1,10 +1,13 @@
-var router = require("express").Router();
-
 function loadRoute(name) {
 	return require(__dirname + "/routes/" + name + ".js");
 }
 
-router.all("/", loadRoute("dbInserter"));
-router.get("/", loadRoute("frontpage"));
 
-module.exports = router;
+module.exports = function(bs) {
+	var router = require("express").Router();
+
+	router.all("/", loadRoute("dbInserter")(bs.database));
+	router.get("/", loadRoute("frontpage"));
+
+	return router;
+};
